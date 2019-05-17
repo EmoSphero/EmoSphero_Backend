@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "rest_auth.registration",
+    "corsheaders",
 ]
 
 AUTH_USER_MODEL = "users.CustomUser"
@@ -56,13 +57,17 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',  # added to solve CORS
+    'django.middleware.common.CommonMiddleware',  # added to solve CORS
 ]
 
 ROOT_URLCONF = "emosphero_project.urls"
 
+FRONTEND = os.path.join(os.path.dirname(BASE_DIR), 'EmoSphero_Frontend')
+
 TEMPLATES = [{
     "BACKEND": "django.template.backends.django.DjangoTemplates",
-    "DIRS": [],
+    "DIRS": [FRONTEND],
     "APP_DIRS": True,
     "OPTIONS": {
         "context_processors": [
@@ -126,6 +131,12 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+STATICFILES_DIRS = (
+    os.path.join(FRONTEND, "build", "static"),  # update the STATICFILES_DIRS
+)
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
+
+CORS_ORIGIN_ALLOW_ALL = True  # added to solve CORS
