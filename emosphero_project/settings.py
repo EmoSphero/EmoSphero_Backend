@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = "users.CustomUser"
+DEFAULT_AUTHENTICATION_CLASSES: (
+    'rest_framework_jwt.authentication.JSONWebTokenAuthentication', )
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -140,3 +142,27 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
 
 CORS_ORIGIN_ALLOW_ALL = True  # added to solve CORS
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG'
+        },
+        'emosphero': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        }
+    },
+}
