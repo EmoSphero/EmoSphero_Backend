@@ -35,22 +35,21 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "users.apps.UsersConfig",
     "api.apps.ApiConfig",
     "rest_framework",
-    "rest_framework.authtoken",
-    "rest_auth",
+    # "rest_framework.authtoken",
+    # "rest_auth",
     "django.contrib.sites",
-    "allauth",
-    "allauth.account",
-    "rest_auth.registration",
+    # "allauth",
+    # "allauth.account",
+    # "rest_auth.registration",
     "corsheaders",
 ]
 
-AUTH_USER_MODEL = "users.CustomUser"
+# AUTH_USER_MODEL = "users.CustomUser"
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ( )
-        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication', )
+    'DEFAULT_AUTHENTICATION_CLASSES': ()
+    # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication', )
 }
 
 

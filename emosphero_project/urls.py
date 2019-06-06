@@ -17,11 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 from cors.views import index
-from users.views import UserListView
 
 urlpatterns = [
     path("", index, name="index"),
-    path("book/", UserListView, name="book"),
     path("admin/", admin.site.urls),
     path("api/", include("api.urls")),
 ]
