@@ -48,8 +48,11 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = "users.CustomUser"
-DEFAULT_AUTHENTICATION_CLASSES: (
-    'rest_framework_jwt.authentication.JSONWebTokenAuthentication', )
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ( )
+        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication', )
+}
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -99,7 +102,8 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME":
-        "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+        "django.contrib.auth.password_validation."
+        "UserAttributeSimilarityValidator"
     },
     {
         "NAME":
