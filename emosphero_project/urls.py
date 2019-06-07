@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from cors.views import index
-from users.views import book
+# from users.views import book
 
 urlpatterns = [
     path("", index, name="index"),
-    path("book/", book, name="book"),
+    # path("book/", book, name="book"),
     path("admin/", admin.site.urls),
     path("api/", include("api.urls")),
 ]

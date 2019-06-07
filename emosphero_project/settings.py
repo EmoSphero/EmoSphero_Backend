@@ -35,8 +35,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "users.apps.UsersConfig",
-    "api.apps.ApiConfig",
+    # "users.apps.UsersConfig",
+    # "api.apps.ApiConfig",
+    "api",
     "rest_framework",
     "rest_framework.authtoken",
     "rest_auth",
@@ -47,7 +48,7 @@ INSTALLED_APPS = [
     "corsheaders",
 ]
 
-AUTH_USER_MODEL = "users.CustomUser"
+AUTH_USER_MODEL = "api.ApiUser"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

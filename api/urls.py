@@ -1,7 +1,9 @@
-from django.urls import include, path
+from django.urls import path
+from api import views
 
 urlpatterns = [
-    path('users/', include('users.urls')),
-    path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('users/', views.list_users),
+    path('user', views.find_or_create_user),
+    path('scores/', views.get_scores),
+    path('score', views.post_score)
 ]
